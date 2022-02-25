@@ -2,6 +2,7 @@ import React from "react";
 import AddKegForm from "./AddKegForm";
 import KegList from "./KegList";
 import KegDetail from "./KegDetail";
+import EditKegForm from "./EditKegForm";
 import { v4 } from 'uuid';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -37,7 +38,8 @@ class KegControl extends React.Component {
           pintsLeft: '124'
         }
       ],
-      selectedKeg: null
+      selectedKeg: null,
+      editing: false
     };
   }
 
@@ -45,7 +47,8 @@ class KegControl extends React.Component {
     if (this.state.selectedKeg !=null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedKeg: null
+        selectedKeg: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
@@ -75,15 +78,43 @@ class KegControl extends React.Component {
     this.setState({selectedKeg: newSelectedKeg
     });
   }
+
+  handleEditClick = () => {
+    this.setState({editing: true});
+  }
+
+  handleEditingKegInList = (kegToEdit) => {
+    const editedMainKegList = this.state.mainKegList
+      .filter(keg => keg.id !== this.state.selectedKeg.id)
+      .concat(kegToEdit);
+    this.setState({
+      mainKegList: editedMainKegList,
+      editing: false,
+      selectedKeg: null
+    });
+  }
+
+  handleDeletingKeg = (id) => {
+    const newMainKegList = this.state.mainKegList.filter(keg => keg.id !== id);
+    this.setState({
+      mainKegList: newMainKegList,
+      selectedKeg: null
+    });
+  }
   
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-
-    if(this.state.selectedKeg !=null) {
+    
+    if(this.state.editing) {
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
+      buttonText = "Return to Potion List";
+    } else if(this.state.selectedKeg !=null) {
       currentlyVisibleState = <KegDetail
       keg = {this.state.selectedKeg}
-      onClickingSell = {this.handleSellingPint} />
+      onClickingSell = {this.handleSellingPint}
+      onClickingEdit = { this.handleEditClick}
+      onClickingDelete = { this.handleDeletingKeg } />
       buttonText = "Return to Keg List";
     } else if(this.state.formVisibleOnPage) {
       currentlyVisibleState = <AddKegForm onAddKegCreation={this.handleAddingNewKegToList} />
@@ -97,11 +128,11 @@ class KegControl extends React.Component {
       <React.Fragment>
         <div className="background-image"></div>
         <Container>
-         {currentlyVisibleState}
+          {currentlyVisibleState}
           <Row>
           <div className="col-4" className="button-align">
-           <button className="button" onClick={this.handleClick}>{buttonText}</button>
-        </div>
+            <button className="button" onClick={this.handleClick}>{buttonText}</button>
+          </div>
         </Row>
         </Container>
       </React.Fragment>

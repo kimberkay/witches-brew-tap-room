@@ -80,6 +80,7 @@ body {
   padding: 10px;
   outline: none;
   border-radius: 10px;
+  margin-bottom: 2em;
 }
 
 .button:hover {
@@ -104,22 +105,39 @@ body {
   padding: 10px;
   outline: none;
   border-radius: 5px;
+  margin-left: 1em;
 }
 
 .button-in-wrapper:hover {
   color: #190087;
   background-color: #C364FA;
+  margin-left: 1em;
 }
 
 .button-align-in-wrapper {
   text-align: center;
+  padding-left: 1em;
 }
 
 .select-hover:hover {
-  padding-top: 1em;
   background-color: rgba(143, 0, 232, 0.372);
   transition: all 0.5s ease;
+  margin-bottom: 1em;
+  height: max-content;
+
 }
+
+hr {
+    border: 0;
+    height: 1px;
+}
+
+
+
+
+/* .edit-form-alignment {
+} */
+
 
 
 

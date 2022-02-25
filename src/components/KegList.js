@@ -12,7 +12,6 @@ function KegList(props) {
           <div className="wrapper"> 
             <h1 className="h1">Hand Crafted Potions</h1>
               <hr/>
-                
                   {props.kegList.map((keg) =>
                   <Keg 
                   whenKegClicked={ props.onKegSelection }

@@ -7,10 +7,11 @@ function Keg(props) {
       <div className="select-hover" onClick = {() => props.whenKegClicked(props.id)}>
         <h3>{props.flavor}</h3>
         <p>{props.maker}</p>
+        <p>{props.instructions}</p>
         <p>{props.price}</p>
         <p>{props.pintsLeft}</p>
-        <hr/>
       </div>
+        <hr/>
     </React.Fragment>
   );
 }
@@ -18,6 +19,7 @@ function Keg(props) {
 Keg.propTypes = {
   flavor: PropTypes.string.isRequired,
   maker: PropTypes.string.isRequired,
+  instructions: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   pintsLeft: PropTypes.string.isRequired,
   id: PropTypes.string,
