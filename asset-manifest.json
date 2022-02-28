@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/witches-brew-tap-room/static/css/main.53379112.css",
+    "main.js": "/witches-brew-tap-room/static/js/main.b9ce5d35.js",
+    "static/media/brew-logo.png": "/witches-brew-tap-room/static/media/brew-logo.78787a65d53a3a1e4a2e.png",
+    "static/media/plant-circle.png": "/witches-brew-tap-room/static/media/plant-circle.65c80050b586e3b62e6a.png",
+    "static/media/wishes.png": "/witches-brew-tap-room/static/media/wishes.bfc7defa71c782292794.png",
+    "index.html": "/witches-brew-tap-room/index.html",
+    "main.53379112.css.map": "/witches-brew-tap-room/static/css/main.53379112.css.map",
+    "main.b9ce5d35.js.map": "/witches-brew-tap-room/static/js/main.b9ce5d35.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.53379112.css",
+    "static/js/main.b9ce5d35.js"
+  ]
+}
