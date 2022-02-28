@@ -4,6 +4,7 @@ body {
   font-family: 'Marcellus', serif;
   color:#FFF;
   font-weight:300;
+  font-size: larger;
 }
 
 .background-image{
@@ -96,7 +97,6 @@ body {
   transition: all .5s ease;
   color: #eaddf2;
   border: 3px solid  #eaddf2;
-  /* font-family: 'Montserrat', sans-serif; */
   text-transform: uppercase;
   text-align: center;
   line-height: 1;
@@ -133,10 +133,6 @@ hr {
 }
 
 
-
-
-/* .edit-form-alignment {
-} */
 
 
 
